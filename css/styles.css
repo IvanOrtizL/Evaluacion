@@ -1,8 +1,9 @@
-#mensaje {
+/*  */
+#message {
     display: none;
 }
 
-/* */
+/* Invalid input red border */
 input.ng-invalid.ng-touched {
     border-bottom: 1px solid red;
 }
@@ -84,46 +85,4 @@ input[type=text], [type=email], [type=date] {
 
 html{
     font-family: 'Montserrat', sans-serif;
-}
-
-
-.angucomplete-holder {
-    position: relative;
-}
-
-.angucomplete-dropdown {
-    border-color: #ececec;
-    border-width: 1px;
-    border-style: solid;
-    border-radius: 2px;
-    width: 300px;
-    left: 66px;
-    padding: 6px;
-    cursor: pointer;
-    z-index: 9999;
-    position: absolute;
-    margin-top: 0px;
-    background-color: #ffffff;
-    font-size: 12px;
-}
-
-.angucomplete-searching {
-    color: #acacac;
-    font-size: 12px;
-}
-
-.angucomplete-description {
-    font-size: 12px;
-}
-
-.angucomplete-row {
-    padding: 5px;
-    color: #000000;
-    margin-bottom: 4px;
-    clear: both;
-}
-
-.angucomplete-selected-row {
-    background-color: lightblue;
-    color: #ffffff;
 }
