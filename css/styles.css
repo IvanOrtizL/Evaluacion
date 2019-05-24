@@ -1,0 +1,129 @@
+#mensaje {
+    display: none;
+}
+
+/* */
+input.ng-invalid.ng-touched {
+    border-bottom: 1px solid red;
+}
+
+body
+{
+  padding: 10px;
+}
+
+.center-div
+{
+  margin: 0 auto;
+  max-width: 700px;
+  border-radius: 3px;
+  padding-left: 0px;
+}
+
+.containerLogo {
+    position: relative;
+    text-align: center;
+    height: 350px;
+}
+
+#logo {
+    width: 700px;
+    height: 300px;
+}
+
+#titulo {
+    color: white;
+    bottom: 200px;
+    position: relative;
+    font-size: 60px;
+}
+
+/* disable send button if form invalid */
+input[disabled="disabled"]{
+    opacity: 0.4;
+    cursor: not-allowed !important;
+}
+
+form.ng-pristine.ng-valid input {
+    border-color: none !important;
+}
+
+input[type=text], input[type=email], input[type=date] {
+    border-radius: 3px;
+    border: none;
+    border-bottom: 1px solid #8BC34A;
+}
+
+.container {
+    display: block;
+    position: relative;
+    align-content: left;
+    width: 100%;
+}
+
+.labels {
+    display: inline-block;
+    float: left;
+    width: 80px;
+
+}
+
+.rows {
+    padding-bottom: 5px;
+}
+
+
+input[type=text], [type=email], [type=date] {
+    width: 300px;
+}
+
+.bottomText {
+    float: right;
+    text-align: right;
+}
+
+html{
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+.angucomplete-holder {
+    position: relative;
+}
+
+.angucomplete-dropdown {
+    border-color: #ececec;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 2px;
+    width: 300px;
+    left: 66px;
+    padding: 6px;
+    cursor: pointer;
+    z-index: 9999;
+    position: absolute;
+    margin-top: 0px;
+    background-color: #ffffff;
+    font-size: 12px;
+}
+
+.angucomplete-searching {
+    color: #acacac;
+    font-size: 12px;
+}
+
+.angucomplete-description {
+    font-size: 12px;
+}
+
+.angucomplete-row {
+    padding: 5px;
+    color: #000000;
+    margin-bottom: 4px;
+    clear: both;
+}
+
+.angucomplete-selected-row {
+    background-color: lightblue;
+    color: #ffffff;
+}

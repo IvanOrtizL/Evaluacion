@@ -1,0 +1,99 @@
+<html ng-app="myApp">
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.3/angular.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-touch/1.2.28/angular-touch.js"></script>
+    <script src="angucomplete-ie8.js"></script>
+	<title>Green Leaves</title>
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+</head>
+<body ng-app="myApp">
+    
+
+    <div class="center-div">
+    
+        <div class="containerLogo">
+            <img src="greenleaves.jpg" id="logo" >
+            <h1 style="color: white" id="titulo">Green Leaves</h1> 
+        </div>
+        <form name="contact" novalidate ng-controller="MainController">
+            <div id="forma" name="formaz"> 
+                <div class="rows">
+                    <span class="labels">Nombre:</span>
+                    <input type="text" ng-model="nombre" placeholder="Nombre Apellido" name="nombre" ng-required=true><br>
+                </div>
+
+                <div class="rows">
+                    <span class="labels">E-mail:</span>
+                    <input type="email" ng-model="email" name="email"  placeholder="ejemplo@ej.com" ng-required=true><br>
+                </div> 
+
+                <div class="rows">
+                    <span class="labels">Teléfono:</span>
+                    <input type="text" placeholder="+52 123 456 7890 o 123 456 7890" name="phone" ng-pattern="phoneNumbr" ng-model="phone" ng-required=true><br>
+                </div> 
+
+                <div class="rows">
+                    <span class="labels">Fecha:</span>
+                    <input  type="date" name="fecha" placeholder="yyyy-MM-dd" ng-model="fecha" ng-required=true 
+                min="{{example.newDate | date: 'yyyy-MM-dd'}}" max="{{example.currentDate | date: 'yyyy-MM-dd'}}"><br>
+                </div> 
+
+                <!-- angucomplete + geonames api -->
+                <div class="rows">
+                    <span class="labels" id="cityLabel">Ciudad:</span>
+                    <angucomplete-ie8 id="ex5" placeholder="Monterrey" pause="500" selected-object="selectedProject" remote-url="http://api.geonames.org/searchJSON?q=" 
+                        remote-url-data-field="geonames" title-field="name,adminName1" description-field="countryCode" minlength="3" 
+                        input-class="form-control form-control-small" match-class="highlight" field-required=true>                  
+                </div>
+                
+                <input type="submit" value="Enviar" ng-disabled="contact.$invalid" onclick="hideShow()">
+
+            </div>
+                
+                
+            
+
+            <div id="mensaje" style="text-align: justify">
+                    <p>Bienvenido <span style="font-weight: bold">{{nombre}}</span></p>
+                    <p>Hemos recibido sus datos y nos pondremos en contacto con usted en la brevedad posible. 
+                        Enviaremos un correo con información a su cuenta: <a href="mailto:{{email}}">{{email}}</a>.
+                    </p>
+                    
+                    <div class="bottomText" style="font-size: 14"><span style="font-weight: bold">Atte.</span><br>
+                        <span style="color: green; font-weight:bold">Green Leaves</span><br>
+                        <div class="bottomText" ng-show="selectedProject">
+                        {{selectedProject.originalObject.name}}, {{selectedProject.originalObject.adminName1}}, {{selectedProject.originalObject.countryName}}
+                         a {{fecha | date: "dd-MMM-yyyy"}}
+                        </div>
+                    </div>
+        
+                </div>
+            </form>
+    
+    
+
+
+
+
+</body>
+<script>
+    function hideShow() {
+        document.getElementById("forma").hidden = true;
+        document.getElementById("mensaje").style.display = "inline";
+    }
+    // Current Date - 100 years
+    var mindate = new Date();
+    mindate.setMonth(mindate.getMonth() - 1200);
+    angular.module('myApp', ["ngTouch", "angucomplete-ie8"]).controller('MainController', ['$scope', '$http', '$rootScope', 
+    function MainController($scope, $http, $rootScope) {
+        $scope.example = {
+            currentDate: new Date(),
+            newDate: mindate               
+        };
+        // Phone Regex
+        $scope.phoneNumbr = /^(\+?\d{2})?[- ]?\d{3}[- ]?\d{3}[- ]?\d{4}$/
+
+        }]);
+</script>
+</html>
